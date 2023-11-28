@@ -14,6 +14,9 @@ use Illuminate\Database\Schema\Builder;
 
 return [
     'up' => function (Builder $schema) {
+	    if ($schema->hasTable('fof_mason_bytag')) {
+            return;
+        }
         $schema->create('fof_mason_bytag', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag_name');
