@@ -73,7 +73,7 @@ Then upgrade from the old extension to the new one:
 
 ```sh
 composer remove flagrow/mason
-composer require xsoft-ict/mason-tag
+composer remove xsoft-ict/mason-tag
 composer require litalino/mason
 ```
 
