@@ -37,7 +37,8 @@
     },
     "replace": {
         "flagrow/mason": "*",
-        "fof/mason": "*"
+        "fof/mason": "*",
+        "xsoft-ict/mason-tag": "*"
     },
     "extra": {
         "flarum-extension": {
