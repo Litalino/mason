@@ -23,7 +23,7 @@ export default class FieldsEditorModal extends Modal {
         this.myFields = [];
 
         // annoying way to get current Tag name, but it works
-        let thisIncludes = this.attrs?.discussion.payload.included;
+        let thisIncludes = this.attrs.discussion.payload.included;
         const findTag = thisIncludes.find((element) => element.type == 'tags');
 
         for (let i = 0; i < matchingTags.length; i++) {
