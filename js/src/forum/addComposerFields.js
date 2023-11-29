@@ -7,6 +7,7 @@ import FieldsEditorByTags from './components/FieldsEditorByTags';
 import ByTagsComposer from './components/ByTagsComposer';
 import TagDiscussionModal from 'flarum/tags/components/TagDiscussionModal';
 //import FieldsEditorAll from './components/FieldsEditorAll';
+import IndexPage from "flarum/forum/components/IndexPage";
 
 export default function () {
     DiscussionComposer.prototype.masonAnswers = [];
@@ -14,6 +15,23 @@ export default function () {
     let ByTagsUnit = new ByTagsComposer();
     let dTag = '';
     var tagChanged = '';
+
+    extend(IndexPage.prototype, "newDiscussionAction", function (promise) {
+      // From `addTagFilter
+      const tag = this.currentTag();
+
+      if (tag) {
+        const parent = tag.parent();
+        const tags = parent ? [parent, tag] : [tag];
+        //const get_tags = promise.then((promise) => (promise.fields.tags = tags));
+
+        //console.log(tags[0].data.attributes.name);
+        dTag = tags[0].data.attributes.name;
+      } else {
+        app.composer.fields.tags = [];
+      }
+    });
+
 
     extend(TagDiscussionModal.prototype, 'onsubmit', function (e) {
         // get name of the tag selected in the modal
